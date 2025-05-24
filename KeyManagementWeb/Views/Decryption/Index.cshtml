@@ -1,0 +1,330 @@
+@{
+    ViewData["Title"] = "Decryption";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Key Management System - Decryption</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+            transition: background-color 0.3s ease;
+        }
+
+        .card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .dark-mode {
+            background-color: #1e1e2d;
+            color: #ffffff;
+        }
+
+            .dark-mode .card {
+                background-color: #2b2b40;
+                box-shadow: 0 0 20px rgba(0,0,0,0.2);
+            }
+
+            .dark-mode .form-control {
+                background-color: #1e1e2d;
+                border-color: #323248;
+                color: #ffffff;
+            }
+
+            .dark-mode .form-select {
+                background-color: #1e1e2d;
+                border-color: #323248;
+                color: #ffffff;
+            }
+
+            .dark-mode .form-label {
+                color: #ffffff;
+            }
+
+            .dark-mode .card-header h3 {
+                color: #ffffff;
+            }
+
+            .dark-mode textarea::placeholder,
+            .dark-mode input::placeholder {
+                color: #6d6d80;
+            }
+
+        .navbar {
+            background-color: #1e1e2d;
+            padding: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .navbar-brand {
+            color: #ffffff;
+            font-size: 1.25rem;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .nav-link {
+            color: #b5b5c3;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+            .nav-link:hover, .nav-link.active {
+                color: #ffffff;
+                background-color: #2b2b40;
+            }
+
+            .nav-link i {
+                margin-right: 0.5rem;
+            }
+
+        .user-info {
+            color: #b5b5c3;
+            font-size: 0.875rem;
+        }
+
+            .user-info i {
+                margin-right: 0.5rem;
+            }
+
+        .form-label {
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-header {
+            background-color: transparent;
+            border-bottom: 1px solid #323248;
+            padding: 1.5rem;
+        }
+
+        .card-body {
+            padding: 1.5rem;
+        }
+
+        .btn-primary {
+            background-color: #3699ff;
+            border-color: #3699ff;
+        }
+
+            .btn-primary:hover {
+                background-color: #187de4;
+                border-color: #187de4;
+            }
+    </style>
+</head>
+<body class="dark-mode">
+    <nav class="navbar">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center">
+                <a class="navbar-brand" href="#">
+                    <i class="fas fa-shield-alt me-2"></i>Key Management System
+                </a>
+                @if (User.Identity?.IsAuthenticated == true && User.Identity.Name != "admin")
+                {
+                    <div class="ms-4">
+                        <a class="nav-link" href="@Url.Action("Index", "Home")">
+                            <i class="fas fa-key"></i>KMS
+                        </a>
+                    </div>
+                    <div class="ms-2">
+                        <a class="nav-link active" href="@Url.Action("Index", "Decryption")">
+                            <i class="fas fa-unlock"></i>Decryption
+                        </a>
+                    </div>
+                    <div class="ms-2">
+                        <a class="nav-link" href="@Url.Action("Index", "Encryption")">
+                            <i class="fas fa-lock"></i>Encryption
+                        </a>
+                    </div>
+                }
+            </div>
+            <div class="d-flex align-items-center">
+                <div class="theme-switch me-4">
+                    <button id="themeToggle" class="btn btn-outline-light">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+                @if (User.Identity?.IsAuthenticated == true)
+                {
+                    <div class="user-info me-3">
+                        <i class="fas fa-user-circle"></i>@User.Identity.Name
+                    </div>
+                    <a href="@Url.Action("Logout", "Account")" class="btn btn-danger btn-sm">
+                        <i class="fas fa-sign-out-alt me-2"></i>Çıkış Yap
+                    </a>
+                }
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="text-center mb-0">
+                            <i class="fas fa-unlock me-2"></i>Decryption
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                        <form id="decryptionForm">
+                            <div class="mb-3">
+                                <label for="keyType" class="form-label">Key Tipi</label>
+                                <select class="form-select" id="keyType" required>
+                                    <option value="AES">AES</option>
+                                    <option value="DES">DES</option>
+                                    <option value="Kazakistan">Kazakistan Decrypt</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="key" class="form-label">Key</label>
+                                <input type="text" class="form-control" id="key" required>
+                            </div>
+                            <div class="mb-3" id="ivContainer">
+                                <label for="iv" class="form-label">Initial Vector (IV)</label>
+                                <input type="text" class="form-control" id="iv" required>
+                                <small class="text-muted" id="ivHelpText">AES için 16 byte, DES için 8 byte gereklidir.</small>
+                            </div>
+                            <div class="mb-3">
+                                <label for="encryptedText" class="form-label">Şifrelenmiş Metin</label>
+                                <textarea class="form-control" id="encryptedText" rows="3" required></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="decryptedText" class="form-label">Çözümlenmiş Metin</label>
+                                <textarea class="form-control" id="decryptedText" rows="3" readonly></textarea>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-unlock me-2"></i>Çözümle
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Algoritma değiştiğinde IV ve Key alanlarını güncelle
+        document.getElementById('keyType').addEventListener('change', function() {
+            const keyType = this.value;
+            const ivContainer = document.getElementById('ivContainer');
+            const ivInput = document.getElementById('iv');
+            const ivHelpText = document.getElementById('ivHelpText');
+            const keyInput = document.getElementById('key');
+            
+            if (keyType === 'Kazakistan') {
+                // Kazakistan için IV gerekmez (ECB modunda TripleDES kullanıyor)
+                ivContainer.style.display = 'none';
+                ivInput.required = false;
+                // Key alanı da zorunlu olmamalı ve varsayılan key değerini ayarla
+                keyInput.required = false;
+                keyInput.placeholder = 'Boş bırakılırsa varsayılan key kullanılır (abcd.1234)';
+            } else {
+                // AES veya DES için IV gereklidir
+                ivContainer.style.display = 'block';
+                ivInput.required = true;
+                // Key için zorunlu yap ve varsayılan placeholderı temizle
+                keyInput.required = true;
+                keyInput.placeholder = '';
+                
+                if (keyType === 'AES') {
+                    ivHelpText.textContent = 'AES için 16 byte gereklidir.';
+                } else if (keyType === 'DES') {
+                    ivHelpText.textContent = 'DES için 8 byte gereklidir.';
+                }
+            }
+        });
+        
+        // Sayfa yüklendiğinde algoritma tipine göre alanları ayarla
+        document.addEventListener('DOMContentLoaded', function() {
+            const keyType = document.getElementById('keyType');
+            // Algoritma değişim olayını tetikle
+            keyType.dispatchEvent(new Event('change'));
+        });
+        
+        // Form gönderildiğinde
+        document.getElementById('decryptionForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const keyType = document.getElementById('keyType').value;
+            const request = {
+                keyType: keyType,
+                key: document.getElementById('key').value,
+                iv: document.getElementById('iv').value,
+                encryptedText: document.getElementById('encryptedText').value
+            };
+            
+
+
+            try {
+                const response = await fetch('/Decryption/Decrypt', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(request)
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    document.getElementById('decryptedText').value = data.result;
+                } else {
+                    alert('Hata: ' + data.error);
+                }
+            } catch (error) {
+                alert('Bir hata oluştu: ' + error.message);
+            }
+        });
+
+        document.getElementById('themeToggle').addEventListener('click', function() {
+            document.body.classList.toggle('light-mode');
+            document.body.classList.toggle('dark-mode');
+
+            const icon = this.querySelector('i');
+            if (document.body.classList.contains('light-mode')) {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+                localStorage.setItem('theme', 'light');
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            const themeToggle = document.getElementById('themeToggle');
+            const icon = themeToggle.querySelector('i');
+
+            if (savedTheme === 'light') {
+                document.body.classList.remove('dark-mode');
+                document.body.classList.add('light-mode');
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            }
+        });
+    </script>
+</body>
+</html>

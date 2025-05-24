@@ -1,0 +1,50 @@
+08.05.2025 12:16:10 - Kullanıcı testuser yeni bir key oluşturdu - KeyType: AES_KEY
+08.05.2025 12:21:09 - Kullanıcı testuser yeni bir key oluşturdu - KeyType: AES_KEY
+08.05.2025 12:21:09 - Kullanıcı testuser key güncelleme gününü değiştirdi - KeyId: 1, Yeni değer: 15
+08.05.2025 12:21:09 - Kullanıcı testuser key değerini otomatik güncelledi - KeyId: 1, KeyType: AES_KEY
+08.05.2025 12:21:21 - Kullanıcı testuser yeni bir key oluşturdu - KeyType: AES_KEY
+08.05.2025 12:21:22 - Kullanıcı testuser key güncelleme gününü değiştirdi - KeyId: 1, Yeni değer: 15
+08.05.2025 12:21:22 - Kullanıcı testuser key değerini otomatik güncelledi - KeyId: 1, KeyType: AES_KEY
+08.05.2025 12:30:07 - Kullanıcı testuser yeni bir key oluşturdu - KeyType: AES_KEY
+08.05.2025 12:30:07 - Kullanıcı testuser key güncelleme gününü değiştirdi - KeyId: 1, Yeni değer: 15
+08.05.2025 12:30:07 - Kullanıcı testuser key değerini otomatik güncelledi - KeyId: 1, KeyType: AES_KEY
+08.05.2025 12:34:09 - Kullanıcı testuser yeni bir key oluşturdu - KeyType: AES_KEY
+08.05.2025 12:34:09 - Kullanıcı testuser key güncelleme gününü değiştirdi - KeyId: 1, Yeni değer: 15
+08.05.2025 12:34:09 - Kullanıcı testuser key değerini otomatik güncelledi - KeyId: 1, KeyType: AES_KEY
+08.05.2025 12:34:40 - Kullanıcı testuser yeni bir key oluşturdu - KeyType: AES_KEY
+08.05.2025 12:34:40 - Kullanıcı testuser key güncelleme gününü değiştirdi - KeyId: 1, Yeni değer: 15
+08.05.2025 12:34:40 - Kullanıcı testuser key değerini otomatik güncelledi - KeyId: 1, KeyType: AES_KEY
+08.05.2025 12:37:51 - Kullanıcı testuser yeni bir key oluşturdu - KeyType: AES_KEY
+08.05.2025 12:37:51 - Kullanıcı testuser key güncelleme gününü değiştirdi - KeyId: 1, Yeni değer: 15
+08.05.2025 12:37:51 - Kullanıcı testuser key değerini otomatik güncelledi - KeyId: 1, KeyType: AES_KEY
+08.05.2025 12:38:10 - Kullanıcı testuser yeni bir key oluşturdu - KeyType: AES_KEY
+08.05.2025 12:38:10 - Kullanıcı testuser key güncelleme gününü değiştirdi - KeyId: 1, Yeni değer: 15
+08.05.2025 12:38:10 - Kullanıcı testuser key değerini otomatik güncelledi - KeyId: 1, KeyType: AES_KEY
+08.05.2025 12:38:32 - Kullanıcı testuser yeni bir key oluşturdu - KeyType: AES_KEY
+08.05.2025 12:38:32 - Kullanıcı testuser key güncelleme gününü değiştirdi - KeyId: 1, Yeni değer: 15
+08.05.2025 12:38:32 - Kullanıcı testuser key değerini otomatik güncelledi - KeyId: 1, KeyType: AES_KEY
+08.05.2025 12:39:09 - Kullanıcı testuser yeni bir key oluşturdu - KeyType: AES_KEY
+08.05.2025 12:39:09 - Kullanıcı testuser key güncelleme gününü değiştirdi - KeyId: 1, Yeni değer: 15
+08.05.2025 12:39:09 - Kullanıcı testuser key değerini otomatik güncelledi - KeyId: 1, KeyType: AES_KEY
+08.05.2025 12:44:47 - Kullanıcı testuser yeni bir key oluşturdu - KeyType: AES_KEY
+08.05.2025 12:44:48 - Kullanıcı testuser key güncelleme gününü değiştirdi - KeyId: 1, Yeni değer: 15
+08.05.2025 12:44:48 - Kullanıcı testuser key değerini otomatik güncelledi - KeyId: 1, KeyType: AES_KEY
+08.05.2025 12:54:21 - Kullanıcı testuser yeni bir key oluşturdu - KeyType: AES_KEY
+08.05.2025 12:54:21 - Kullanıcı testuser key güncelleme gününü değiştirdi - KeyId: 1, Yeni değer: 15
+08.05.2025 12:54:21 - Kullanıcı testuser key değerini otomatik güncelledi - KeyId: 1, KeyType: AES_KEY
+21.05.2025 10:37:45 - Kullanıcı testuser yeni bir key oluşturdu - KeyType: AES_KEY
+21.05.2025 10:37:45 - Kullanıcı testuser key ve ilgili geçmişini sildi - KeyId: 1
+21.05.2025 10:37:45 - Kullanıcı testuser key güncelleme gününü değiştirdi - KeyId: 1, Yeni değer: 15
+21.05.2025 10:37:45 - Kullanıcı testuser key değerini otomatik güncelledi - KeyId: 1, KeyType: AES_KEY
+21.05.2025 10:45:45 - Kullanıcı testuser yeni bir key oluşturdu - KeyType: AES_KEY
+21.05.2025 10:45:46 - Kullanıcı testuser key ve ilgili geçmişini sildi - KeyId: 1
+21.05.2025 10:45:46 - Kullanıcı testuser key güncelleme gününü değiştirdi - KeyId: 1, Yeni değer: 15
+21.05.2025 10:45:46 - Kullanıcı testuser key değerini otomatik güncelledi - KeyId: 1, KeyType: AES_KEY
+21.05.2025 10:52:47 - Kullanıcı testuser yeni bir key oluşturdu - KeyType: AES_KEY
+21.05.2025 10:52:48 - Kullanıcı testuser key ve ilgili geçmişini sildi - KeyId: 1
+21.05.2025 10:52:48 - Kullanıcı testuser key güncelleme gününü değiştirdi - KeyId: 1, Yeni değer: 15
+21.05.2025 10:52:48 - Kullanıcı testuser key değerini otomatik güncelledi - KeyId: 1, KeyType: AES_KEY
+21.05.2025 10:57:09 - Kullanıcı testuser yeni bir key oluşturdu - KeyType: AES_KEY
+21.05.2025 10:57:09 - Kullanıcı testuser key ve ilgili geçmişini sildi - KeyId: 1
+21.05.2025 10:57:09 - Kullanıcı testuser key güncelleme gününü değiştirdi - KeyId: 1, Yeni değer: 15
+21.05.2025 10:57:09 - Kullanıcı testuser key değerini otomatik güncelledi - KeyId: 1, KeyType: AES_KEY

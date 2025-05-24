@@ -1,0 +1,6 @@
+03.04.2025 13:16:01 - Kullanıcı batuhan yeni key oluşturdu - KeyType: DES_KEY
+03.04.2025 13:22:04 - Kullanıcı batuhan yeni bir key oluşturdu - KeyType: DES_KEY
+03.04.2025 13:22:21 - Kullanıcı batuhan key ve ilgili geçmişini sildi - KeyId: 5
+03.04.2025 13:22:43 - Kullanıcı batuhan key güncelleme gününü değiştirdi - KeyId: 19, Yeni değer: 7
+03.04.2025 13:23:32 - Kullanıcı ali key güncelleme gününü değiştirdi - KeyId: 19, Yeni değer: 9
+03.04.2025 14:36:07 - Kullanıcı veli key değerini otomatik güncelledi - KeyId: 17, KeyType: DES_KEY

@@ -1,0 +1,53 @@
+﻿/* İkonlar */
+.fas {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.fa-key::before {
+    content: "🔑";
+}
+
+.fa-user-shield::before {
+    content: "🛡️";
+}
+
+.fa-home::before {
+    content: "🏠";
+}
+
+.fa-user::before {
+    content: "👤";
+}
+
+.fa-sign-out-alt::before {
+    content: "🚪";
+}
+
+.fa-heart::before {
+    content: "❤️";
+}
+
+.fa-sync-alt::before {
+    content: "🔄";
+}
+
+.fa-trash::before {
+    content: "🗑️";
+}
+
+.fa-edit::before {
+    content: "✏️";
+}
+
+.fa-check-circle::before {
+    content: "✅";
+}
+
+.fa-exclamation-circle::before {
+    content: "⚠️";
+}

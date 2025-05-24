@@ -1,0 +1,8 @@
+C:\Users\Win10\source\repos\KeyManagementWeb\obj\Debug\net8.0\KeyManagementWeb.csproj.AssemblyReference.cache
+C:\Users\Win10\source\repos\KeyManagementWeb\obj\Debug\net8.0\KeyManagementWeb.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Win10\source\repos\KeyManagementWeb\obj\Debug\net8.0\KeyManagementWeb.AssemblyInfoInputs.cache
+C:\Users\Win10\source\repos\KeyManagementWeb\obj\Debug\net8.0\KeyManagementWeb.AssemblyInfo.cs
+C:\Users\Win10\source\repos\KeyManagementWeb\obj\Debug\net8.0\KeyManagementWeb.csproj.CoreCompileInputs.cache
+C:\Users\Win10\source\repos\KeyManagementWeb\obj\Debug\net8.0\KeyManagementWeb.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Win10\source\repos\KeyManagementWeb\obj\Debug\net8.0\KeyManagementWeb.RazorAssemblyInfo.cache
+C:\Users\Win10\source\repos\KeyManagementWeb\obj\Debug\net8.0\KeyManagementWeb.RazorAssemblyInfo.cs

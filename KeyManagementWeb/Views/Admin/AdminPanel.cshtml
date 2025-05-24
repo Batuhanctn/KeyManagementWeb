@@ -1,0 +1,337 @@
+﻿@model IEnumerable<KeyManagementWeb.Models.User>
+@{
+    ViewData["Title"] = "Admin Paneli";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <style>
+        body {
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        .navbar {
+            background-color: #1e1e2d;
+            padding: 1rem;
+        }
+
+        .navbar-brand {
+            color: #ffffff;
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .theme-switch {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .theme-label {
+            color: #ffffff;
+        }
+
+        .admin-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .table {
+            margin-bottom: 0;
+        }
+
+            .table th {
+                background-color: #f8f9fa;
+                font-weight: 600;
+                text-transform: uppercase;
+                font-size: 0.85rem;
+                padding: 1rem;
+                border-bottom: 2px solid #e9ecef;
+            }
+
+            .table td {
+                padding: 1rem;
+                vertical-align: middle;
+            }
+
+        .badge {
+            padding: 0.5rem 0.75rem;
+            font-weight: 500;
+            font-size: 0.85rem;
+            border-radius: 6px;
+        }
+
+        .badge-admin {
+            background-color: #3699ff;
+            color: white;
+        }
+
+        .badge-user {
+            background-color: #0bb783;
+            color: white;
+        }
+
+        .badge-inactive {
+            background-color: #f64e60;
+            color: white;
+        }
+
+        .btn-icon {
+            width: 32px;
+            height: 32px;
+            padding: 0;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            margin: 0 0.25rem;
+        }
+
+        .dark-mode {
+            background-color: #1e1e2d;
+            color: #ffffff;
+        }
+
+            .dark-mode .navbar {
+                background-color: #1b1b28;
+                border-bottom: 1px solid #2b2b40;
+            }
+
+            .dark-mode .card {
+                background-color: #2b2b40;
+                box-shadow: 0 0 20px rgba(0,0,0,0.2);
+            }
+
+            .dark-mode .table th {
+                background-color: #1e1e2d;
+                border-bottom-color: #323248;
+                color: #b5b5c3;
+            }
+
+            .dark-mode .table td {
+                border-bottom-color: #323248;
+            }
+
+            .dark-mode .table-striped > tbody > tr:nth-of-type(odd) > * {
+                background-color: rgba(0,0,0,0.05);
+            }
+
+        .permission-form {
+            max-width: 100%;
+        }
+
+        .permission-checks {
+            background-color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+        }
+
+        .form-check {
+            margin-bottom: 0.75rem;
+        }
+
+            .form-check:last-child {
+                margin-bottom: 0;
+            }
+
+        .form-check-label {
+            display: flex;
+            align-items: center;
+        }
+
+        .form-check-input {
+            margin-right: 0.75rem;
+        }
+
+        .dark-mode .permission-checks {
+            background-color: #1e1e2d;
+        }
+
+        .btn-danger {
+            background-color: #f64e60;
+            border-color: #f64e60;
+        }
+
+            .btn-danger:hover {
+                background-color: #ee2d41;
+                border-color: #ee2d41;
+            }
+    </style>
+</head>
+<body class="dark-mode">
+    <nav class="navbar">
+        <div class="container-fluid">
+            <span class="navbar-brand">
+                <i class="fas fa-key me-2"></i>Key Management System
+            </span>
+            <div class="d-flex align-items-center">
+                <div class="theme-switch me-3">
+                    <span class="theme-label">Koyu Mod</span>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="themeToggle" checked>
+                    </div>
+                </div>
+                <a href="@Url.Action("Logout", "Account")" class="btn btn-danger">
+                    <i class="fas fa-sign-out-alt me-2"></i>Çıkış Yap
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="admin-container">
+        @if (TempData["Success"] != null)
+        {
+            <div class="alert alert-success mb-4">
+                <i class="fas fa-check-circle me-2"></i>@TempData["Success"]
+            </div>
+        }
+
+        @if (TempData["Error"] != null)
+        {
+            <div class="alert alert-danger mb-4">
+                <i class="fas fa-exclamation-circle me-2"></i>@TempData["Error"]
+            </div>
+        }
+
+        <div class="card">
+            <div class="card-header bg-transparent p-4 border-bottom">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0">
+                        <i class="fas fa-users me-2"></i>Kullanıcılar
+                    </h5>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Ad Soyad</th>
+                            <th>Email</th>
+                            <th>İşlemler</th>
+                            <th>Sil</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var user in Model)
+                        {
+                            <tr>
+                                <td>@user.UserId</td>
+                                <td>@user.Username</td>
+                                <td>@user.UserMail</td>
+                                <td>
+                                    <form asp-controller="Admin" asp-action="UpdatePermissions" method="post" class="permission-form">
+                                        <input type="hidden" name="userId" value="@user.UserId" />
+                                        <div class="permission-checks">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" name="permissions" value="D"
+                                                @(user.UserPermission?.Contains("D") == true ? "checked" : "")>
+                                                <label class="form-check-label">
+                                                    <i class="fas fa-trash-alt me-2 text-danger"></i>Silme Yetkisi (D)
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" name="permissions" value="U"
+                                                @(user.UserPermission?.Contains("U") == true ? "checked" : "")>
+                                                <label class="form-check-label">
+                                                    <i class="fas fa-edit me-2 text-success"></i>Key Oluşturma/Güncelleme (U)
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" name="permissions" value="C"
+                                                @(user.UserPermission?.Contains("C") == true ? "checked" : "")>
+                                                <label class="form-check-label">
+                                                    <i class="fas fa-clock me-2 text-info"></i>Update Day Değiştirme (C)
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">
+                                            <i class="fas fa-save me-2"></i>Yetkileri Güncelle
+                                        </button>
+                                    </form>
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-danger" onclick="deleteUser(@user.UserId)">
+                                        <i class="fas fa-trash-alt me-2"></i>Sil
+                                    </button>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+
+        themeToggle.addEventListener('change', function() {
+            if (this.checked) {
+                body.classList.add('dark-mode');
+                body.classList.remove('light-mode');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                body.classList.remove('dark-mode');
+                body.classList.add('light-mode');
+                localStorage.setItem('theme', 'light');
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            themeToggle.checked = savedTheme === 'dark';
+
+            if (savedTheme === 'light') {
+                body.classList.remove('dark-mode');
+                body.classList.add('light-mode');
+            }
+        });
+
+        // Kullanıcı silme fonksiyonu
+        function deleteUser(userId) {
+            if (confirm('Bu kullanıcıyı silmek istediğinizden emin misiniz?')) {
+                $.ajax({
+                    url: '/Admin/DeleteUser',
+                    type: 'POST',
+                    data: { userId: userId },
+                    success: function(response) {
+                        if (response.success) {
+                            location.reload();
+                        } else {
+                            alert(response.message || 'Kullanıcı silinirken bir hata oluştu.');
+                        }
+                    },
+                    error: function() {
+                        alert('Sunucu ile iletişim sırasında bir hata oluştu.');
+                    }
+                });
+            }
+        }
+    </script>
+</body>
+</html>

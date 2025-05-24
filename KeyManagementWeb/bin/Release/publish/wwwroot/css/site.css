@@ -1,0 +1,295 @@
+/* Tema Deðiþkenleri */
+.dark-mode {
+    --primary-dark: #1e1e2d;
+    --secondary-dark: #2b2b40;
+    --accent-blue: #3699ff;
+    --accent-blue-hover: #187de4;
+    --accent-green: #0bb783;
+    --accent-green-hover: #099e6f;
+    --accent-red: #f64e60;
+    --accent-red-hover: #ee2d41;
+    --text-light: #ffffff;
+    --text-gray: #b5b5c3;
+    --border-color: #323248;
+    --card-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+.light-mode {
+    --primary-dark: #ffffff;
+    --secondary-dark: #f5f8fa;
+    --accent-blue: #3699ff;
+    --accent-blue-hover: #187de4;
+    --accent-green: #0bb783;
+    --accent-green-hover: #099e6f;
+    --accent-red: #f64e60;
+    --accent-red-hover: #ee2d41;
+    --text-light: #181c32;
+    --text-gray: #7e8299;
+    --border-color: #e4e6ef;
+    --card-shadow: 0 0 20px rgba(76, 87, 125, 0.02);
+}
+
+/* Bootstrap deðiþkenlerini geçersiz kýl */
+:root {
+    --bs-body-bg: var(--primary-dark);
+    --bs-body-color: var(--text-light);
+    --bs-navbar-color: var(--text-light);
+    --bs-navbar-hover-color: var(--accent-blue);
+    --bs-navbar-active-color: var(--accent-blue);
+}
+
+/* Sýfýrlama */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Temel Stiller */
+html {
+    font-size: 14px;
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Navbar */
+.navbar {
+    background-color: var(--secondary-dark);
+    box-shadow: var(--card-shadow);
+    border: none;
+    padding: 1rem 0;
+    transition: background-color 0.3s ease;
+}
+
+.navbar-brand {
+    color: var(--text-light);
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+.nav-link {
+    color: var(--text-gray);
+    font-weight: 500;
+    padding: 0.7rem 1.2rem;
+    transition: all 0.3s ease;
+}
+
+    .navbar-brand:hover,
+    .nav-link:hover {
+        color: var(--accent-blue);
+    }
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.75)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.navbar-toggler {
+    border-color: var(--border-color);
+    padding: 0.5rem;
+}
+
+    .navbar-toggler:focus {
+        box-shadow: 0 0 0 0.25rem rgba(54, 153, 255, 0.25);
+    }
+
+/* Container */
+.container {
+    padding: 2rem 1rem;
+}
+
+/* Tablo */
+.table-responsive {
+    background-color: var(--secondary-dark);
+    border-radius: 8px;
+    box-shadow: var(--card-shadow);
+    margin-top: 1.5rem;
+    overflow: hidden;
+    transition: background-color 0.3s ease;
+}
+
+.table {
+    margin-bottom: 0;
+    color: var(--text-light);
+}
+
+    .table th {
+        background-color: rgba(0,0,0,0.1);
+        color: var(--text-gray);
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 0.85rem;
+        padding: 1rem;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .table td {
+        padding: 1rem;
+        vertical-align: middle;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+/* Butonlar */
+.btn {
+    padding: 0.65rem 1.25rem;
+    font-weight: 500;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: var(--accent-blue);
+    border-color: var(--accent-blue);
+}
+
+    .btn-primary:hover {
+        background-color: var(--accent-blue-hover);
+        border-color: var(--accent-blue-hover);
+    }
+
+.btn-danger {
+    background-color: var(--accent-red);
+    border-color: var(--accent-red);
+}
+
+    .btn-danger:hover {
+        background-color: var(--accent-red-hover);
+        border-color: var(--accent-red-hover);
+    }
+
+.btn-warning {
+    background-color: var(--accent-green);
+    border-color: var(--accent-green);
+    color: white;
+}
+
+    .btn-warning:hover {
+        background-color: var(--accent-green-hover);
+        border-color: var(--accent-green-hover);
+        color: white;
+    }
+
+/* Form Kontrolleri */
+.form-control, .form-select {
+    background-color: var(--primary-dark);
+    border: 1px solid var(--border-color);
+    color: var(--text-light);
+    padding: 0.65rem 1rem;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+    .form-control:focus, .form-select:focus {
+        background-color: var(--primary-dark);
+        border-color: var(--accent-blue);
+        color: var(--text-light);
+        box-shadow: 0 0 0 0.25rem rgba(54, 153, 255, 0.25);
+    }
+
+/* Alerts */
+.alert {
+    padding: 1rem 1.5rem;
+    border-radius: 6px;
+    margin-bottom: 1.5rem;
+    border: none;
+}
+
+.alert-success {
+    background-color: rgba(11, 183, 131, 0.1);
+    border-left: 4px solid var(--accent-green);
+    color: var(--accent-green);
+}
+
+.alert-danger {
+    background-color: rgba(246, 78, 96, 0.1);
+    border-left: 4px solid var(--accent-red);
+    color: var(--accent-red);
+}
+
+.alert-warning {
+    background-color: rgba(255, 168, 0, 0.1);
+    border-left: 4px solid #ffa800;
+    color: #ffa800;
+}
+
+.alert-info {
+    background-color: rgba(54, 153, 255, 0.1);
+    border-left: 4px solid var(--accent-blue);
+    color: var(--accent-blue);
+}
+
+/* Yardýmcý Sýnýflar */
+.mb-4 {
+    margin-bottom: 1.5rem;
+}
+
+.d-flex {
+    display: flex;
+    gap: 0.5rem;
+}
+
+/* Sayfa Baþlýðý */
+h2 {
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: var(--text-light);
+}
+
+/* Footer */
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: var(--secondary-dark);
+    padding: 1rem 0;
+    color: var(--text-gray);
+    transition: background-color 0.3s ease;
+}
+
+/* Badge */
+.badge {
+    padding: 0.5rem 0.75rem;
+    font-weight: 500;
+    font-size: 0.85rem;
+    border-radius: 4px;
+}
+
+/* Code */
+code {
+    background-color: var(--primary-dark);
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* Tema Geçiþ Butonu */
+#themeToggle {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+    #themeToggle:hover {
+        background-color: var(--accent-blue);
+        border-color: var(--accent-blue);
+    }
+
+/* Light Mode için Özel Stiller */
+.light-mode .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 0, 0, 0.75)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.light-mode .table th {
+    background-color: rgba(0,0,0,0.02);
+}
