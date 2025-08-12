@@ -31,7 +31,7 @@ Bu proje, ASP.NET Core 8.0 kullanılarak geliştirilmiş web tabanlı bir Anahta
 - **Veritabanı:** Entity Framework Core 8, Microsoft SQL Server
 - **Kimlik Doğrulama:** ASP.NET Core Identity, BCrypt.Net-Next (Parola Hashleme)
 - **E-posta Gönderimi:** MailKit
-- **Frontend:** Razor Pages, HTML, CSS, JavaScript (Bootstrap muhtemel)
+- **Frontend:** Razor Pages, HTML, CSS, JavaScript
 
 ## Kurulum ve Çalıştırma
 
